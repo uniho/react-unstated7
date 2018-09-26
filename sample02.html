@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Unstated7 sample 2</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="unstated7.js"></script>
+  
+  <script>
+
+    const {Container, Subscribe} = unstated7
+
+    // Define your containers!
+    class MyContainer1 extends Container {
+      constructor(props) {
+        super()
+        this.state = {count : props.count ? props.count : 0}
+        this.increment = this.increment.bind(this)
+      }
+
+      increment() {
+        this.setState({count: this.state.count+1})
+      }
+    }
+
+    class MyContainer2 extends Container {
+      constructor(props) {
+        super()
+        this.state = {count : props.count ? props.count : 0}
+        this.increment = this.increment.bind(this)
+      }
+
+      increment() {
+        this.setState(cur => ({count: cur.count+1}))
+      }
+    }
+
+    // Create instances of containers(if you need)!
+    unstated7.inject(new MyContainer1({count: 100}), new MyContainer2({}))
+
+    // Subscribe your containers!
+    const re = React.createElement('Fragment', {}, [
+      React.createElement(Subscribe, {to: [MyContainer1, MyContainer2]},
+        (c1, c2) => React.createElement('Fragment', {}, [
+          React.createElement('div', {}, [
+            React.createElement('button', {onClick: c1.increment}, 'Gooood!'),
+            React.createElement('span', {}, c1.state.count),
+          ]),
+          React.createElement('div', {}, [
+            React.createElement('button', {onClick: c2.increment}, 'Booooo!'),
+            React.createElement('span', {}, c2.state.count),
+          ]),
+        ])
+      ),
+
+      React.createElement('hr'),
+      React.createElement('div', {}, 'Hello! こんにちは!'),
+      React.createElement('hr'),
+
+      React.createElement(Subscribe, {to: [MyContainer1, MyContainer2]},
+        (c1, c2) => React.createElement('Fragment', {}, [
+          React.createElement('div', {}, [
+            React.createElement('button', {onClick: c1.increment}, 'Gooood!'),
+          ]),
+          React.createElement('div', {}, [
+            React.createElement('button', {onClick: c2.increment}, 'Booooo!'),
+          ]),
+        ])
+      ),
+    ])
+
+    ReactDOM.render(re, document.getElementById('app')) 
+  
+  </script>
+</html>
