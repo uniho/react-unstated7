@@ -11,20 +11,20 @@ Unstated7 provides you great features as [Unstated](https://github.com/jamiebuil
 Unstated:
 > If you're like me, you're sick of all the ceremony around state management in React. Something that fits in well with the React way of thinking, but doesn't command some crazy architecture and methodology.
 > 
-> Component state is nice! It makes sense and people pick it up quickly:
-> ・・・
+> Component state is nice! It makes sense and people pick it up quickly:  
+> ・・・  
 > As a new React developer you might not know exactly how everything works, but you can get a general sense pretty quickly.
 > 
 > The only problem here is that we can't easily share this state with other components in our tree. Which is intentional! React components are designed to be very self-contained.
 > 
 > What would be great is if we could replicate the nice parts of React's component state API while sharing it across multiple components.
 > 
-> But how do we share values between components in React? Through "context".
-> ・・・
+> But how do we share values between components in React? Through "context".  
+> ・・・  
 > This is already pretty great. Once you get a little bit used to React's way of thinking, it makes total sense and it's very predictable.
 > 
-> But can we build on this pattern to make something even nicer?
-> ・・・
+> But can we build on this pattern to make something even nicer?  
+> ・・・  
 > Well this is where Unstated comes in.
 
 
@@ -42,7 +42,7 @@ Unstated7 in your browser, simply include the script:
 Or use CDN:
 
 ```html
-<script src="https://unpkg.com/unstated7@latest/unstated7.js"</script>
+<script src="https://unpkg.com/unstated7@latest/unstated7.js"></script>
 ```
 
 ### NodeJS, etc.
