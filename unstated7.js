@@ -20,7 +20,7 @@ const unstated7 = (function() {
     unstated7._containers = {};
     Array.prototype.forEach.call(arguments, function(item) { 
       unstated7._containers[item.constructor] = item;
-    }.bind(this));
+    }, this);
   }
 
   // Container Class
@@ -52,7 +52,7 @@ const unstated7 = (function() {
         }  
         item.forceUpdate(finish);
       }.bind(this), 0);
-    }.bind(this));
+    }, this);
   };  
   unstated7.Container.prototype.subscribe = function(item) {
     if (this._listeners.indexOf(item) >= 0) return;
@@ -69,7 +69,7 @@ const unstated7 = (function() {
   };
   Object.setPrototypeOf(unstated7.Subscribe.prototype, React.Component.prototype);
   unstated7.Subscribe.prototype.componentWillUnmount = function() {
-    this.instances.forEach(function(item) {item.unsubscribe(this)});
+    this.instances.forEach(function(item) {item.unsubscribe(this)}, this);
   };
   unstated7.Subscribe.prototype.render = function() {
     const to = this.props.to;
@@ -85,7 +85,7 @@ const unstated7 = (function() {
       }
       instance.subscribe(this);
       return instance;
-    }.bind(this));
+    }, this);
 
     //return this.props.children(...this.instances);
     return this.props.children.apply(null, this.instances);
