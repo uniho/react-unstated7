@@ -7,14 +7,17 @@
 
 */
 
-const unstated7 = (function() {
-  "use strict";
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.unstated7 = factory());
+}(this, (function () { 'use strict';
   
   function unstated7() {
   }
 
   unstated7._containers = {};
-  
+
   // inject(Instance of Container, ...)
   unstated7.inject = function() {
     unstated7._containers = {};
@@ -30,15 +33,15 @@ const unstated7 = (function() {
   unstated7.Container.prototype.setState = function(updater, callback) {
     const nextState = typeof updater === 'function' ?
       updater(this.state) : updater;
-  
+
     if (nextState == null) {
       if (callback) callback();
       return;
     }
-  
+
     //this.state = Object.assign({}, this.state, nextState);
     for (let p in nextState) this.state[p] = nextState[p];
-  
+
     let counter = this._listeners.length;
     const finish = function() {
       counter--;
@@ -92,8 +95,5 @@ const unstated7 = (function() {
   };
 
   return unstated7;
-})();
 
-if (typeof module != "undefined" && module.exports != null) {
-  module.exports = unstated7;
-}
+})));
