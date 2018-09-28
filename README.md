@@ -56,7 +56,7 @@ npm install unstated7
 Simply use the Unstated7 module as you would any other module:
 
 ```javascript
-var unstated7 = require("unstated7.js");
+const unstated7 = require("./unstated7.js");
 ```
 
 ## Usage
