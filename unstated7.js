@@ -35,17 +35,19 @@
       updater(this.state) : updater;
 
     if (nextState == null) {
-      if (callback) callback();
+      if (typeof callback === 'function') callback();
       return;
     }
 
     //this.state = Object.assign({}, this.state, nextState);
     for (let p in nextState) this.state[p] = nextState[p];
 
+    if (callback === 'defer') return;
+
     let counter = this._listeners.length;
     const finish = function() {
       counter--;
-      if (callback && !counter) callback();
+      if (!counter && typeof callback === 'function') callback();
     };
     this._listeners.forEach(function(item) {
       setTimeout(function() {
