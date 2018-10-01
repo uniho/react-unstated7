@@ -9,9 +9,9 @@ Unstated7 is a small and lightweight library for
 Unstated7 provides you great features as [Unstated](https://github.com/jamiebuilds/unstated), except Provider and Promise though.
 
 Unstated:
-> If you're like me, you're sick of all the ceremony around state management in React. Something that fits in well with the React way of thinking, but doesn't command some crazy architecture and methodology.
+> If you're like me, you're sick of all the ceremony around state management in React, you want something that fits in well with the React way of thinking, but doesn't command some crazy architecture and methodology.
 > 
-> Component state is nice! It makes sense and people pick it up quickly:  
+> So first off: Component state is nice! It makes sense and people can pick it up quickly:  
 > ・・・  
 > As a new React developer you might not know exactly how everything works, but you can get a general sense pretty quickly.
 > 
